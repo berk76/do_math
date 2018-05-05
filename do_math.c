@@ -9,6 +9,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define NUM_OF_EXCER 30
+#define ADD_SUB_MAX 10
+#define MUL_DIV_MAX 3
 
 int do_add();
 int do_sub();
@@ -55,13 +58,13 @@ int main(void) {
         printf("\nVysvedceni\n");
         printf("==========\n\n");
         if (add != 0)
-                printf("Scitani   %d\n", add);
+                printf("Scitani   %d chyb\n", add);
         if (sub != 0)
-                printf("Odcitani  %d\n", sub);
+                printf("Odcitani  %d chyb\n", sub);
         if (mul != 0)
-                printf("Nasobeni  %d\n", mul);
+                printf("Nasobeni  %d chyb\n", mul);
         if (div != 0)
-                printf("Deleni    %d\n", div);
+                printf("Deleni    %d chyb\n", div);
         
         getchar();
         printf("\nStiskni klavesu...\n");
@@ -74,9 +77,9 @@ int main(void) {
 int do_add() {
         int i, a, b, c, result, max;
         
-        max = 10;
-        result = 9;
-        for (i = 0; i < 10; i++) {
+        max = ADD_SUB_MAX;
+        result = 0;
+        for (i = 0; i < NUM_OF_EXCER; i++) {
                 a = rand() % max + 1;
                 b = rand() % max + 1;
                 if (a > b) {
@@ -86,23 +89,22 @@ int do_add() {
                 }
                 printf("%d + %d = ", a, b);
                 scanf("%d", &c);
-                if (c == (a + b)) {
-                        result--;
-                } else {
+                if (c != (a + b)) {
                         printf("Spatne!\n");
+                        result++;
                 }
         }
         
-        return (result / 2) + 1;
+        return result;
 }
 
 
 int do_sub() {
         int i, a, b, c, result, max;
         
-        max = 10;
-        result = 9;
-        for (i = 0; i < 10; i++) {
+        max = ADD_SUB_MAX;
+        result = 0;
+        for (i = 0; i < NUM_OF_EXCER; i++) {
                 a = rand() % max + 1;
                 b = rand() % max + 1;
                 if (a > b) {
@@ -113,53 +115,50 @@ int do_sub() {
                 }
                 printf("%d - %d = ", c, b);
                 scanf("%d", &a);
-                if (a == (c - b)) {
-                        result--;
-                } else {
+                if (a != (c - b)) {
                         printf("Spatne!\n");
+                        result++;
                 }
         }
         
-        return (result / 2) + 1;
+        return result;
 }
 
 
 int do_mul() {
         int i, a, b, c, result;
         
-        result = 9;
-        for (i = 0; i < 10; i++) {
-                a = rand() % 11;
+        result = 0;
+        for (i = 0; i < NUM_OF_EXCER; i++) {
+                a = rand() % (MUL_DIV_MAX + 1);
                 b = rand() % 11;
                 printf("%d x %d = ", a, b);
                 scanf("%d", &c);
-                if (c == (a * b)) {
-                        result--;
-                } else {
+                if (c != (a * b)) {
                         printf("Spatne!\n");
+                        result++;
                 }
         }
         
-        return (result / 2) + 1;
+        return result;
 }
 
 
 int do_div() {
         int i, a, b, c, result;
         
-        result = 9;
-        for (i = 0; i < 10; i++) {
+        result = 0;
+        for (i = 0; i < NUM_OF_EXCER; i++) {
                 a = (rand() % 10) + 1;
-                b = (rand() % 10) + 1;
+                b = (rand() % MUL_DIV_MAX) + 1;
                 c = a * b;
                 printf("%d / %d = ", c, b);
                 scanf("%d", &a);
-                if (a == (c / b)) {
-                        result--;
-                } else {
+                if (a != (c / b)) {
                         printf("Spatne!\n");
+                        result++;
                 }
         }
         
-        return (result / 2) + 1;
+        return result;
 }
