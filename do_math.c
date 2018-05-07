@@ -131,8 +131,17 @@ int do_mul() {
         result = 0;
         for (i = 0; i < NUM_OF_EXCER; i++) {
                 a = rand() % (MUL_DIV_MAX + 1);
+                if (a < 2) {
+                        a += 2;
+                } 
                 b = rand() % 11;
-                printf("%d x %d = ", a, b);
+                
+                c = rand() % 2;
+                if (c == 0) { 
+                        printf("%d x %d = ", a, b);
+                } else {
+                        printf("%d x %d = ", b, a);
+                }
                 scanf("%d", &c);
                 if (c != (a * b)) {
                         printf("Spatne!\n");
