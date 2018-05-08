@@ -126,7 +126,7 @@ int do_sub() {
 
 
 int do_mul() {
-        int i, a, b, c, result;
+        int i, a, b, c, d, result;
         
         result = 0;
         for (i = 0; i < NUM_OF_EXCER; i++) {
@@ -136,17 +136,19 @@ int do_mul() {
                 } 
                 b = rand() % 11;
                 
-                c = rand() % 2;
-                if (c == 0) { 
-                        printf("%d x %d = ", a, b);
-                } else {
-                        printf("%d x %d = ", b, a);
-                }
-                scanf("%d", &c);
-                if (c != (a * b)) {
-                        printf("Spatne!\n");
-                        result++;
-                }
+                d = rand() % 2;
+                do {
+                        if (d == 0) { 
+                                printf("%d x %d = ", a, b);
+                        } else {
+                                printf("%d x %d = ", b, a);
+                        }
+                        scanf("%d", &c);
+                        if (c != (a * b)) {
+                                printf("Spatne!\n");
+                                result++;
+                        }
+                } while ((c != (a * b)));
         }
         
         return result;
@@ -161,12 +163,14 @@ int do_div() {
                 a = (rand() % 10) + 1;
                 b = (rand() % MUL_DIV_MAX) + 1;
                 c = a * b;
-                printf("%d / %d = ", c, b);
-                scanf("%d", &a);
-                if (a != (c / b)) {
-                        printf("Spatne!\n");
-                        result++;
-                }
+                do {
+                        printf("%d / %d = ", c, b);
+                        scanf("%d", &a);
+                        if (a != (c / b)) {
+                                printf("Spatne!\n");
+                                result++;
+                        }
+                } while (a != (c / b)); 
         }
         
         return result;
