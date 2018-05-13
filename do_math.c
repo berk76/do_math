@@ -18,6 +18,8 @@ int do_sub();
 int do_mul();
 int do_div();
 
+int get_rand(int min, int max, int old);
+
 
 int main(void) {
         int c, result, add, sub, mul, div;
@@ -130,11 +132,8 @@ int do_mul() {
         
         result = 0;
         for (i = 0; i < NUM_OF_EXCER; i++) {
-                a = rand() % (MUL_DIV_MAX + 1);
-                if (a < 2) {
-                        a += 2;
-                } 
-                b = rand() % 11;
+                a = get_rand(0, 10, a); 
+                b = get_rand(2, MUL_DIV_MAX, b);
                 
                 d = rand() % 2;
                 do {
@@ -160,8 +159,8 @@ int do_div() {
         
         result = 0;
         for (i = 0; i < NUM_OF_EXCER; i++) {
-                a = (rand() % 10) + 1;
-                b = (rand() % MUL_DIV_MAX) + 1;
+                a = get_rand(1, 10, a);
+                b = get_rand(2, MUL_DIV_MAX, b);
                 c = a * b;
                 do {
                         printf("%d / %d = ", c, b);
@@ -174,4 +173,15 @@ int do_div() {
         }
         
         return result;
+}
+
+
+int get_rand(int min, int max, int old) {
+        int result;
+        
+        do {
+                result = (rand() % (max - min + 1)) + min;
+        } while (result == old);
+        
+        return result; 
 }
