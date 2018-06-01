@@ -11,7 +11,7 @@
 
 #define NUM_OF_EXCER 30
 #define ADD_SUB_MAX 10
-#define MUL_DIV_MAX 3
+#define MUL_DIV_MAX 4
 
 int do_add();
 int do_sub();
