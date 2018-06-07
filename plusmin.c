@@ -9,8 +9,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NUM_OF_EXCER 30
 #define ADD_SUB_MAX 100
+#define LINLEN 80
+
+char s[LINLEN];
 
 int do_add();
 int do_sub();
@@ -18,12 +20,19 @@ int get_rand(int min, int max, int old);
 
 
 int main(void) {
-        int errors, i;
+        int errors, i, n;
         
         srand(time(NULL));
         errors = 0;
         
-        for (i = 0; i < NUM_OF_EXCER; i++) {
+        do {
+                printf("%s", "Kolik prikladu budeme pocitat? ");
+                fgets(s, LINLEN, stdin);
+                n = atoi(s);
+        } while (n <= 0);
+        
+        
+        for (i = 0; i < n; i++) {
                 if ((rand() % 2) == 0) {
                         errors += do_add();
                 } else {
@@ -31,7 +40,9 @@ int main(void) {
                 }
         }
         
-        printf("\nPocet chyb: %d\n", errors);
+        printf("%s","\n");
+        printf("Pocet prikladu: %d\n", n);
+        printf("Pocet chyb:     %d\n", errors);
         getchar();
         printf("\nStiskni klavesu...\n");
         getchar();
@@ -54,13 +65,18 @@ int do_add() {
         } else {
                 b -= a;
         }
-        printf("%d + %d = ", a, b);
-        scanf("%d", &c);
-        if (c != (a + b)) {
-                printf("Spatne!\n");
-                result++;
-        }
         
+        while (1){
+                printf("%d + %d = ", a, b);
+                fgets(s, LINLEN, stdin);
+                c = atoi(s);
+                if (c != (a + b)) {
+                        printf("Spatne!\n");
+                        result++;
+                } else {
+                        break;
+                }
+        }        
         return result;
 }
 
@@ -81,11 +97,17 @@ int do_sub() {
                 c = b;
                 b = a;
         }
-        printf("%d - %d = ", c, b);
-        scanf("%d", &a);
-        if (a != (c - b)) {
-                printf("Spatne!\n");
-                result++;
+        
+        while (1){
+                printf("%d - %d = ", c, b);
+                fgets(s, LINLEN, stdin);
+                a = atoi(s);
+                if (a != (c - b)) {
+                        printf("Spatne!\n");
+                        result++;
+                } else {
+                        break;
+                }
         }
         
         return result;

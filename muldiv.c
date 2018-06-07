@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NUM_OF_EXCER 30
+#define NUM_OF_EXCER 60
 #define MUL_DIV_MAX 4
 
 int do_mul();
