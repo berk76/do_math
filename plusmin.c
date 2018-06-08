@@ -43,7 +43,6 @@ int main(void) {
         printf("%s","\n");
         printf("Pocet prikladu: %d\n", n);
         printf("Pocet chyb:     %d\n", errors);
-        getchar();
         printf("\nStiskni klavesu...\n");
         getchar();
         return 0;
@@ -66,17 +65,16 @@ int do_add() {
                 b -= a;
         }
         
-        while (1){
+        do {
                 printf("%d + %d = ", a, b);
                 fgets(s, LINLEN, stdin);
                 c = atoi(s);
                 if (c != (a + b)) {
                         printf("Spatne!\n");
                         result++;
-                } else {
-                        break;
                 }
-        }        
+        } while (c != (a + b));
+               
         return result;
 }
 
@@ -98,17 +96,15 @@ int do_sub() {
                 b = a;
         }
         
-        while (1){
+        do {
                 printf("%d - %d = ", c, b);
                 fgets(s, LINLEN, stdin);
                 a = atoi(s);
                 if (a != (c - b)) {
                         printf("Spatne!\n");
                         result++;
-                } else {
-                        break;
                 }
-        }
+        } while (a != (c - b));
         
         return result;
 }

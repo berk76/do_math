@@ -9,8 +9,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NUM_OF_EXCER 60
 #define MUL_DIV_MAX 4
+#define LINLEN 80
+
+char s[LINLEN];
 
 int do_mul();
 int do_div();
@@ -18,12 +20,18 @@ int get_rand(int min, int max, int old);
 
 
 int main(void) {
-        int errors, i;
+        int errors, i, n;
         
         srand(time(NULL));
         errors = 0;
         
-        for (i = 0; i < NUM_OF_EXCER; i++) {
+        do {
+                printf("%s", "Kolik prikladu budeme pocitat? ");
+                fgets(s, LINLEN, stdin);
+                n = atoi(s);
+        } while (n <= 0);
+        
+        for (i = 0; i < n; i++) {
                 if ((rand() % 2) == 0) {
                         errors += do_mul();
                 } else {
@@ -31,8 +39,9 @@ int main(void) {
                 }
         }
         
-        printf("\nPocet chyb: %d\n", errors);
-        getchar();
+        printf("%s","\n");
+        printf("Pocet prikladu: %d\n", n);
+        printf("Pocet chyb:     %d\n", errors);
         printf("\nStiskni klavesu...\n");
         getchar();
         return 0;
@@ -56,7 +65,8 @@ int do_mul() {
                 } else {
                         printf("%d x %d = ", b, a);
                 }
-                scanf("%d", &c);
+                fgets(s, LINLEN, stdin);
+                c = atoi(s);
                 if (c != (a * b)) {
                         printf("Spatne!\n");
                         result++;
@@ -80,7 +90,8 @@ int do_div() {
         c = a * b;
         do {
                 printf("%d / %d = ", c, b);
-                scanf("%d", &a);
+                fgets(s, LINLEN, stdin);
+                a = atoi(s);
                 if (a != (c / b)) {
                         printf("Spatne!\n");
                         result++;
