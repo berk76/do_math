@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MUL_DIV_MAX 4
+#define MUL_DIV_MAX 10
 #define LINLEN 80
 
 char s[LINLEN];
