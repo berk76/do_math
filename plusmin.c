@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define ADD_SUB_MAX 100
+#define ADD_SUB_MAX 1000
 #define LINLEN 80
 
 char s[LINLEN];
