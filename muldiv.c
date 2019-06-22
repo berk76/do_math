@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MUL_DIV_MAX 10
+#define MUL_DIV_MAX 1000
 #define LINLEN 80
 
 char s[LINLEN];
@@ -89,14 +89,14 @@ int do_div() {
         b = get_rand(2, MUL_DIV_MAX, b);
         c = a * b;
         do {
-                printf("%d / %d = ", c, b);
+                printf("%d / %d = ", c, a);
                 fgets(s, LINLEN, stdin);
-                a = atoi(s);
-                if (a != (c / b)) {
+                b = atoi(s);
+                if (b != (c / a)) {
                         printf("Spatne!\n");
                         result++;
                 }
-        } while (a != (c / b)); 
+        } while (b != (c / a)); 
         
         return result;
 }
