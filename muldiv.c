@@ -50,13 +50,14 @@ int main(void) {
 
 /* return num of errors */
 int do_mul() {
-        static int a, b; 
-        int c, d, result;
+        static int a, b, c; 
+        int d, result;
         
         result = 0;
 
         a = get_rand(0, 10, a); 
-        b = get_rand(2, MUL_DIV_MAX, b);
+        c = get_rand(2, MUL_DIV_MAX, c);
+        b = c / a;
         
         d = rand() % 2;
         do {
@@ -86,8 +87,10 @@ int do_div() {
         result = 0;
         
         a = get_rand(1, 10, a);
-        b = get_rand(2, MUL_DIV_MAX, b);
-        c = a * b;
+        c = get_rand(2, MUL_DIV_MAX, b);
+        b = c / a;
+        c =  b * a;
+        
         do {
                 printf("%d / %d = ", c, a);
                 fgets(s, LINLEN, stdin);
