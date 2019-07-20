@@ -35,7 +35,8 @@ int main(void) {
                 if ((rand() % 2) == 0) {
                         errors += do_mul();
                 } else {
-                        errors += do_div();
+                        //errors += do_div();
+                        errors += do_mul();
                 }
         }
         
@@ -55,7 +56,7 @@ int do_mul() {
         
         result = 0;
 
-        a = get_rand(0, 10, a); 
+        a = get_rand(1, 10, a); 
         c = get_rand(2, MUL_DIV_MAX, c);
         b = c / a;
         
