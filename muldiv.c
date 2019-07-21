@@ -60,13 +60,19 @@ int do_mul() {
         c = get_rand(2, MUL_DIV_MAX, c);
         b = c / a;
         
-        d = rand() % 2;
+        //d = rand() % 2;
         do {
-                if (d == 0) { 
-                        printf("%d x %d = ", a, b);
+                printf("\n");
+                if (a > b) { 
+                        //printf("%d x %d = ", a, b);
+                        printf("  %5d\n", a);
+                        printf("x %5d\n", b);
                 } else {
-                        printf("%d x %d = ", b, a);
+                        //printf("%d x %d = ", b, a);
+                        printf("  %5d\n", b);
+                        printf("x %5d\n", a);
                 }
+                printf("-------\n", b);
                 fgets(s, LINLEN, stdin);
                 c = atoi(s);
                 if (c != (a * b)) {
