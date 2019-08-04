@@ -22,7 +22,7 @@ int get_rand(int min, int max, int old);
 
 
 int main(void) {
-        int c, result, add, sub, mul, div;
+        int c, add, sub, mul, div;
         
         add = 0;
         sub = 0;
@@ -129,7 +129,9 @@ int do_sub() {
 
 int do_mul() {
         int i, a, b, c, d, result;
-        
+
+        a = 0;
+        b = 0;
         result = 0;
         for (i = 0; i < NUM_OF_EXCER; i++) {
                 a = get_rand(0, 10, a); 
@@ -156,7 +158,9 @@ int do_mul() {
 
 int do_div() {
         int i, a, b, c, result;
-        
+
+        a = 0;
+        b = 0;
         result = 0;
         for (i = 0; i < NUM_OF_EXCER; i++) {
                 a = get_rand(1, 10, a);

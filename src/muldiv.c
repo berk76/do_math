@@ -52,7 +52,7 @@ int main(void) {
 /* return num of errors */
 int do_mul() {
         static int a, b, c; 
-        int d, result;
+        int result;
         
         result = 0;
 
@@ -72,7 +72,7 @@ int do_mul() {
                         printf("  %5d\n", b);
                         printf("x %5d\n", a);
                 }
-                printf("-------\n", b);
+                printf("-------\n");
                 fgets(s, LINLEN, stdin);
                 c = atoi(s);
                 if (c != (a * b)) {

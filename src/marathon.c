@@ -67,7 +67,7 @@ int do_add(int max) {
 
 
 int do_sub(int max) {
-        int i, a, b, c, result, result2;
+        int a, b, c, result, result2;
         
         result = 0;
         a = rand() % (max + 1);

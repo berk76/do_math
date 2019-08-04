@@ -52,9 +52,8 @@ int main(void) {
 /* return num of errors */
 int do_add() {
         static int a, b;
-        int c, result, max;
-        
-        max = ADD_SUB_MAX;
+        int c, result;
+
         result = 0;
 
         a = get_rand(10, ADD_SUB_MAX, a);
@@ -82,9 +81,8 @@ int do_add() {
 /* return num of errors */
 int do_sub() {
         static int a, b;
-        int c, result, max;
-        
-        max = ADD_SUB_MAX;
+        int c, result;
+
         result = 0;
         
         a = get_rand(10, ADD_SUB_MAX, a);

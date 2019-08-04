@@ -13,7 +13,7 @@ int get_user_input() {
 
 
 int do_add() {
-        int i, a, b, c, n1, n2, result, max;
+        int a, b, c, n1, n2, result, max;
         
         max = 10;
         result = 0;
@@ -56,7 +56,7 @@ int do_add() {
 
 
 int do_sub() {
-        int i, a, b, c, n1, n2, n3, result, max;
+        int a, b, c, n1, n2, n3, result, max;
         
         max = 10;
         result = 0;
