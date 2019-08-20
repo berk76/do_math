@@ -57,7 +57,7 @@ int do_mul() {
         result = 0;
 
         a = get_rand(1, 10, a); 
-        c = get_rand(10, MUL_DIV_MAX, c);
+        c = get_rand(100, MUL_DIV_MAX, c);
         b = c / a;
         
         //d = rand() % 2;
