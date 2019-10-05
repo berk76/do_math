@@ -2,7 +2,7 @@ CC = cc
 CFLAGS = -O2 -Wall -c -o $@
 
 
-all: addsub100 do_math marathon maratho2 maratho3 muldiv plusmin
+all: addsub100 do_math marathon maratho2 maratho3 muldiv muldiv2 plusmin
 
 addsub100: src/addsub100.o 
 	$(CC) -Wall -o addsub100 src/addsub100.o
@@ -22,6 +22,9 @@ maratho3: src/maratho3.o
 muldiv: src/muldiv.o 
 	$(CC) -Wall -o muldiv src/muldiv.o
 
+muldiv2: src/muldiv2.o 
+	$(CC) -Wall -o muldiv2 src/muldiv2.o
+
 plusmin: src/plusmin.o 
 	$(CC) -Wall -o plusmin src/plusmin.o
 
@@ -36,6 +39,8 @@ src/maratho2.o: src/maratho2.c
 src/maratho3.o: src/maratho3.c
 
 src/muldiv.o: src/muldiv.c
+
+src/muldiv2.o: src/muldiv2.c
 
 src/plusmin.o: src/plusmin.c
 
