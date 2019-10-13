@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MUL_DIV_MAX 1000
+#define MUL_DIV_MAX 10000
 #define LINLEN 80
 
 char s[LINLEN];
@@ -95,7 +95,7 @@ int do_div() {
         result = 0;
         correct = 0;
         
-        a = get_rand(1, 10, a);
+        a = get_rand(2, 10, a);
         b = get_rand(10, MUL_DIV_MAX, b);
         
         do {
