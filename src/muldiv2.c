@@ -13,6 +13,7 @@
 #define LINLEN 80
 
 char s[LINLEN];
+int num_max_cif;
 
 int do_mul();
 int do_div();
@@ -24,6 +25,17 @@ int main(void) {
         
         srand(time(NULL));
         errors = 0;
+        
+        do {
+                printf("%s", "Kolika cifernym cislem budeme delit? (1 nebo 2) ");
+                fgets(s, LINLEN, stdin);
+                n = atoi(s);
+        } while ((n != 1) && (n != 2));
+
+        num_max_cif = 1;
+        for (i = 0; i < n; i++) {
+                num_max_cif = num_max_cif * 10;
+        }
         
         do {
                 printf("%s", "Kolik prikladu budeme pocitat? ");
@@ -95,7 +107,7 @@ int do_div() {
         result = 0;
         correct = 0;
         
-        a = get_rand(2, 10, a);
+        a = get_rand(2, num_max_cif, a);
         b = get_rand(10, MUL_DIV_MAX, b);
         
         do {
